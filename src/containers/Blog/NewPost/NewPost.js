@@ -24,7 +24,8 @@ class NewPost extends Component {
     };
 
     axios.post('/posts', post).then(Response => console.log(Response));
-    this.setState({ submitted: true });
+    this.props.history.replace('/posts');
+    // this.setState({ submitted: true });
   };
 
   render() {
