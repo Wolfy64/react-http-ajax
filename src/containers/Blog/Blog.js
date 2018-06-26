@@ -29,7 +29,7 @@ class Blog extends Component {
                 </NavLink>
               </li>
               <li>
-                {/* <NavLink
+                <NavLink
                   to={{
                     pathname: 'test',
                     hash: '#submit',
@@ -37,7 +37,7 @@ class Blog extends Component {
                   }}
                 >
                   Test
-                </NavLink> */}
+                </NavLink>
               </li>
               <li>
                 <NavLink to="/new-post">New Post</NavLink>
@@ -50,7 +50,8 @@ class Blog extends Component {
             <Route path="/new-post" exact component={NewPost} />
           ) : null}
           <Route path="/posts" component={Posts} />
-          <Redirect from="/" to="/posts/" />
+          <Route render={() => <h1>Not Found</h1>} />
+          {/* <Redirect from="/" to="/posts/" /> */}
           {/* <Route path="/" component={Posts} /> */}
         </Switch>
       </div>
