@@ -25,7 +25,7 @@ class Blog extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink
+                {/* <NavLink
                   to={{
                     pathname: 'test',
                     hash: '#submit',
@@ -33,7 +33,7 @@ class Blog extends Component {
                   }}
                 >
                   Test
-                </NavLink>
+                </NavLink> */}
               </li>
               <li>
                 <NavLink to="/new-post">New Post</NavLink>
