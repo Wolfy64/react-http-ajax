@@ -1,14 +1,18 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
 
-import "./NewPost.css";
+import './NewPost.css';
 
 class NewPost extends Component {
   state = {
-    title: "",
-    content: "",
-    author: "David"
+    title: '',
+    content: '',
+    author: 'David'
   };
+
+  componentDidMount() {
+    console.log(this.props);
+  }
 
   postDataHandler = () => {
     const post = {
@@ -16,9 +20,7 @@ class NewPost extends Component {
       body: this.state.content,
       author: this.state.author
     };
-    axios
-      .post("/posts", post)
-      .then(Response => console.log(Response));
+    axios.post('/posts', post).then(Response => console.log(Response));
   };
 
   render() {
