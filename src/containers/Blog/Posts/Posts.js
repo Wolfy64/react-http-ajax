@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import axios from '../../../axios';
 import Post from '../../../components/Post/Post';
 import './Posts.css';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import FullPost from '../FullPost/FullPost';
+
 class Posts extends Component {
   state = {
     posts: []
@@ -36,8 +38,8 @@ class Posts extends Component {
     let posts = <p style={{ textAlign: 'center' }}>Something went wrong!</p>;
     if (!this.state.error) {
       posts = this.state.posts.map(post => (
-        // Old Syntax: <Link to={'/' + post.id} key={post.id}>
-        <Link to={`/${post.id}`} key={post.id} exact>
+        // Old Syntax: <Link to={'/posts/' + post.id} key={post.id}>
+        <Link to={`/posts/${post.id}`} key={post.id} exact>
           <Post
             title={post.title}
             author={post.author}
@@ -47,7 +49,12 @@ class Posts extends Component {
       ));
     }
 
-    return <section className="Posts">{posts}</section>;
+    return (
+      <div>
+        <section className="Posts">{posts}</section>;
+        <Route path={`${this.props.match.url}/:id`} component={FullPost} />
+      </div>
+    );
   }
 }
 
